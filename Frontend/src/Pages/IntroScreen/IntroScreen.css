@@ -1,0 +1,355 @@
+.intro-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: url('/starry-clear-sky-view-with-nature-landscape.jpg') no-repeat center center/cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  overflow: hidden;
+  animation: fadeIn 0.8s ease-out;
+}
+
+.intro-screen::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(11, 11, 15, 0.7);
+  /* Dark overlay for readability */
+  z-index: 1;
+}
+
+.intro-screen.exiting {
+  animation: fadeOut 0.8s ease-in forwards;
+}
+
+/* ===== GLASS CARD REMOVED ===== */
+/* Text is now directly on background */
+
+/* ===== PARTICLE BACKGROUND ===== */
+.particles-container {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.particle {
+  position: absolute;
+  width: 3px;
+  height: 3px;
+  background: radial-gradient(circle, var(--color-accent), transparent);
+  border-radius: 50%;
+  opacity: 0;
+  animation: particleFloat infinite ease-in-out;
+  box-shadow: 0 0 10px var(--color-accent);
+}
+
+@keyframes particleFloat {
+
+  0%,
+  100% {
+    opacity: 0;
+    transform: translateY(0) scale(0.5);
+  }
+
+  50% {
+    opacity: 0.8;
+    transform: translateY(-30px) scale(1);
+  }
+}
+
+/* ===== GRADIENT OVERLAY ===== */
+.gradient-overlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(ellipse at center,
+      rgba(0, 255, 209, 0.1) 0%,
+      rgba(162, 119, 255, 0.05) 50%,
+      transparent 100%);
+  animation: pulseGradient 3s ease-in-out infinite;
+}
+
+@keyframes pulseGradient {
+
+  0%,
+  100% {
+    opacity: 0.5;
+  }
+
+  50% {
+    opacity: 1;
+  }
+}
+
+/* ===== MAIN CONTENT ===== */
+.intro-content {
+  position: relative;
+  z-index: 10;
+  text-align: center;
+  animation: contentSlideUp 1s ease-out;
+}
+
+@keyframes contentSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ===== LOGO ===== */
+.logo-container {
+  position: relative;
+  margin-bottom: 2rem;
+}
+
+.intro-logo {
+  font-family: 'Outfit', sans-serif;
+  font-size: 8rem;
+  font-weight: 800;
+  /* Slightly lighter than 900 for elegance */
+  background: linear-gradient(to bottom, #ffffff, #a277ff);
+  /* Cleaner gradient */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  letter-spacing: 0.15em;
+  margin: 0;
+  animation: logoReveal 1.8s cubic-bezier(0.22, 1, 0.36, 1);
+  /* Smoother easing */
+  filter: drop-shadow(0 0 30px rgba(162, 119, 255, 0.4));
+}
+
+@keyframes logoReveal {
+  0% {
+    opacity: 0;
+    transform: scale(0.8) translateY(20px);
+    filter: blur(15px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+    filter: blur(0);
+  }
+}
+
+@keyframes logoGlow {
+  from {
+    filter: drop-shadow(0 0 20px rgba(0, 255, 209, 0.4));
+  }
+
+  to {
+    filter: drop-shadow(0 0 40px rgba(162, 119, 255, 0.6));
+  }
+}
+
+.logo-glow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(162, 119, 255, 0.15), transparent 70%);
+  filter: blur(80px);
+  animation: glowPulse 4s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes glowPulse {
+
+  0%,
+  100% {
+    transform: translate(-50%, -50%) scale(0.8);
+    opacity: 0.5;
+  }
+
+  50% {
+    transform: translate(-50%, -50%) scale(1.2);
+    opacity: 0.8;
+  }
+}
+
+/* ===== TAGLINE WITH GLITCH EFFECT ===== */
+.tagline-container {
+  position: relative;
+  margin-bottom: 3rem;
+}
+
+.intro-tagline {
+  font-family: 'Outfit', sans-serif;
+  font-size: 1.2rem;
+  font-weight: 300;
+  color: rgba(255, 255, 255, 0.8);
+  letter-spacing: 0.3em;
+  /* Wider spacing for premium feel */
+  text-transform: uppercase;
+  margin: 0;
+  animation: fadeInUp 1.2s ease-out 0.6s both;
+}
+
+.intro-tagline.glitch {
+  display: none;
+  /* Removing glitch for cleaner professional look, or making it very subtle */
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes glitchEffect {
+
+  0%,
+  90%,
+  100% {
+    opacity: 0;
+    transform: translate(0);
+  }
+
+  92% {
+    opacity: 0.8;
+    transform: translate(-2px, 2px);
+  }
+
+  94% {
+    opacity: 0.8;
+    transform: translate(2px, -2px);
+  }
+
+  96% {
+    opacity: 0.8;
+    transform: translate(-2px, -2px);
+  }
+}
+
+/* ===== LOADING BAR ===== */
+.loading-bar {
+  width: 200px;
+  /* Smaller, more minimal */
+  height: 2px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+  overflow: hidden;
+  margin: 0 auto;
+  animation: fadeIn 1s ease-out 1.2s both;
+}
+
+.loading-progress {
+  height: 100%;
+  background: #00ffd1;
+  box-shadow: 0 0 10px #00ffd1;
+  animation: loadingProgress 4s ease-out forwards;
+}
+
+@keyframes loadingProgress {
+  from {
+    width: 0%;
+  }
+
+  to {
+    width: 100%;
+  }
+}
+
+/* ===== SKIP BUTTON ===== */
+.skip-button {
+  position: absolute;
+  bottom: 3rem;
+  right: 3rem;
+  padding: 0.6rem 1.2rem;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.6);
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 300;
+  letter-spacing: 0.1em;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(5px);
+  animation: fadeIn 1s ease-out 2s both;
+  text-transform: uppercase;
+}
+
+.skip-button:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.3);
+  color: #fff;
+  transform: translateY(-2px);
+}
+
+/* ===== GENERAL ANIMATIONS ===== */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+  }
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+  .glass-card {
+    padding: 3rem 2rem;
+    width: 85%;
+  }
+
+  .intro-logo {
+    font-size: 4rem;
+  }
+
+  .intro-tagline {
+    font-size: 0.9rem;
+    letter-spacing: 0.2em;
+  }
+
+  .loading-bar {
+    width: 200px;
+  }
+
+  .skip-button {
+    bottom: 2rem;
+    right: 2rem;
+    padding: 0.6rem 1.2rem;
+    font-size: 0.9rem;
+  }
+
+  .logo-glow {
+    width: 250px;
+    height: 250px;
+  }
+}
