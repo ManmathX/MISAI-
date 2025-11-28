@@ -1,5 +1,8 @@
 import React, { useEffect } from 'react';
-import ReliabilityGraph from './ReliabilityGraph'
+import ReliabilityGraph from './ReliabilityGraph';
+import CARSGraph from './CARSGraph';
+import CACEGraph from './CACEGraph';
+import CustomLossGraph from './CustomLossGraph';
 import './ApproachSolution.css';
 import Navbar from '../Navbar/Navbar';
 import Footer from '../Footer/Footer';
@@ -112,6 +115,8 @@ const ApproachSolution = () => {
                                 This score combines multiple quality dimensions to provide a comprehensive assessment of AI reliability. Each component is weighted to reflect its importance in determining overall trustworthiness.
                             </p>
                         </div>
+
+                        <CARSGraph />
                     </div>
 
                     <div className="metric-card">
@@ -167,6 +172,52 @@ const ApproachSolution = () => {
                                 <strong>When the CACE score is high,</strong> it means the AI models have very different or conflicting answers, signaling less agreement or more disagreement among them.
                             </p>
                         </div>
+
+                        <CACEGraph />
+                    </div>
+
+                    <div className="metric-card">
+                        <h3>Formula 3: Custom Balanced-Usage Loss</h3>
+                        <p>
+                            The Custom Balanced-Usage Loss function encourages neural network weights to achieve a balanced distribution,
+                            promoting efficient weight utilization across neurons. This regularization technique helps prevent over-reliance
+                            on specific weights while maintaining model expressiveness.
+                        </p>
+
+                        <h4>Loss Definition</h4>
+                        <p>
+                            For one data point (x, y) with prediction ŷ = f_W(x), the loss is:
+                        </p>
+
+                        <div className="formula-box" dangerouslySetInnerHTML={{ __html: '$$L(\\mathbf{W}; \\mathbf{x}, y) = (\\hat{y} - y)^2 + \\lambda \\sum_{j=1}^{m} (R_j - 1)^2$$' }}></div>
+
+                        <p>where the balance ratio R<sub>j</sub> for each neuron j is defined as:</p>
+
+                        <div className="formula-box" dangerouslySetInnerHTML={{ __html: '$$R_j = \\frac{S_j}{D_j} = \\frac{\\sum_{i=1}^{d} |W_{ij}|}{\\sqrt{\\sum_{i=1}^{d} W_{ij}^2 + \\varepsilon}}$$' }}></div>
+
+                        <h4>Key Components</h4>
+                        <ul className="formula-variables">
+                            <li><strong>W</strong>: Weight matrix of the layer</li>
+                            <li><strong>S<sub>j</sub></strong>: L1-norm (sum of absolute weights)</li>
+                            <li><strong>Q<sub>j</sub></strong>: L2-norm squared (sum of weight squares)</li>
+                            <li><strong>D<sub>j</sub></strong>: Stabilized L2 norm</li>
+                            <li><strong>R<sub>j</sub></strong>: Balance ratio (optimal at 1)</li>
+                            <li><strong>λ</strong>: Controls the penalty strength</li>
+                            <li><strong>ε</strong>: Small stability constant</li>
+                        </ul>
+
+                        <div className="metric-explanation">
+                            <p>
+                                <strong>The penalty term (R<sub>j</sub> - 1)²</strong> encourages each neuron&apos;s weights to maintain a balance
+                                between L1 and L2 norms. When R<sub>j</sub> = 1, the weights are optimally balanced, and the penalty is minimized.
+                            </p>
+                            <p>
+                                <strong>The gradient</strong> of this loss with respect to each weight W<sub>ij</sub> combines the standard backpropagation
+                                term with the penalty gradient, enabling efficient training via gradient descent.
+                            </p>
+                        </div>
+
+                        <CustomLossGraph />
                     </div>
                 </div>
 

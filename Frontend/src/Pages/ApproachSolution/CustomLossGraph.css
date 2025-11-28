@@ -1,0 +1,370 @@
+.custom-loss-graph {
+    width: 100%;
+    animation: fadeIn 0.6s ease-out;
+}
+
+.loss-content {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+/* Formula Section */
+.formula-section {
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.formula-section h3 {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    background: linear-gradient(135deg, #ff0080, #ff8c00, #40e0d0);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.formula-box {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin: 0 auto;
+    max-width: 900px;
+}
+
+.formula-text {
+    color: #fff;
+    font-size: 1.1rem;
+    margin: 0.5rem 0;
+}
+
+/* Graphs Container */
+.graphs-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin-top: 1rem;
+}
+
+.graph-card {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    padding: 1.5rem;
+    transition: all 0.3s ease;
+}
+
+.graph-card:hover {
+    border-color: rgba(255, 0, 128, 0.3);
+    box-shadow: 0 8px 32px rgba(255, 0, 128, 0.2);
+    transform: translateY(-2px);
+}
+
+.graph-card h4 {
+    font-size: 1.3rem;
+    margin-bottom: 1.5rem;
+    color: #fff;
+    text-align: center;
+}
+
+/* Penalty Plot */
+.penalty-plot {
+    display: block;
+    margin: 0 auto;
+}
+
+.current-point {
+    filter: drop-shadow(0 0 8px #ff0080);
+    animation: pulse 2s ease-in-out infinite;
+}
+
+.optimal-point {
+    filter: drop-shadow(0 0 8px #40e0d0);
+}
+
+@keyframes pulse {
+
+    0%,
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+    50% {
+        opacity: 0.7;
+        transform: scale(1.2);
+    }
+}
+
+/* Interactive Controls */
+.controls-section {
+    margin-bottom: 1.5rem;
+}
+
+.control-group {
+    margin-bottom: 1.2rem;
+}
+
+.control-group label {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #fff;
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+.param-value {
+    color: #ff8c00;
+    font-weight: bold;
+    font-family: 'Courier New', monospace;
+}
+
+.slider {
+    width: 100%;
+    height: 6px;
+    border-radius: 3px;
+    background: linear-gradient(to right, #ff0080, #40e0d0);
+    outline: none;
+    -webkit-appearance: none;
+    appearance: none;
+    cursor: pointer;
+}
+
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: #fff;
+    cursor: pointer;
+    box-shadow: 0 0 10px rgba(255, 0, 128, 0.5);
+    transition: all 0.2s;
+}
+
+.slider::-webkit-slider-thumb:hover {
+    transform: scale(1.2);
+    box-shadow: 0 0 15px rgba(255, 0, 128, 0.8);
+}
+
+.slider::-moz-range-thumb {
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: #fff;
+    cursor: pointer;
+    border: none;
+    box-shadow: 0 0 10px rgba(255, 0, 128, 0.5);
+    transition: all 0.2s;
+}
+
+.slider::-moz-range-thumb:hover {
+    transform: scale(1.2);
+    box-shadow: 0 0 15px rgba(255, 0, 128, 0.8);
+}
+
+/* Weights Section */
+.weights-section {
+    margin-bottom: 1.5rem;
+}
+
+.weights-section h5 {
+    color: #fff;
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.weight-inputs {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    gap: 0.8rem;
+}
+
+.weight-input-group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.3rem;
+}
+
+.weight-input-group label {
+    color: #40e0d0;
+    font-size: 0.9rem;
+    font-weight: bold;
+}
+
+.weight-input {
+    width: 100%;
+    padding: 0.5rem;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+    color: #fff;
+    font-size: 0.9rem;
+    text-align: center;
+    transition: all 0.3s;
+}
+
+.weight-input:focus {
+    outline: none;
+    border-color: #ff0080;
+    box-shadow: 0 0 10px rgba(255, 0, 128, 0.3);
+    background: rgba(255, 255, 255, 0.15);
+}
+
+/* Results Section */
+.results-section {
+    margin-top: 1.5rem;
+}
+
+.results-section h5 {
+    color: #fff;
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.results-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.8rem;
+}
+
+.result-item {
+    background: rgba(255, 255, 255, 0.08);
+    padding: 0.8rem;
+    border-radius: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s;
+}
+
+.result-item:hover {
+    background: rgba(255, 255, 255, 0.12);
+    border-color: rgba(64, 224, 208, 0.3);
+}
+
+.result-item.highlight {
+    background: rgba(255, 0, 128, 0.1);
+    border-color: rgba(255, 0, 128, 0.3);
+}
+
+.result-item.highlight:hover {
+    background: rgba(255, 0, 128, 0.15);
+    border-color: rgba(255, 0, 128, 0.5);
+}
+
+.result-label {
+    color: #40e0d0;
+    font-weight: bold;
+    font-size: 0.95rem;
+}
+
+.result-value {
+    color: #fff;
+    font-family: 'Courier New', monospace;
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+/* Explanation Section */
+.explanation-section {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin-top: 1rem;
+}
+
+.explanation-section h4 {
+    color: #fff;
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.explanation-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1rem;
+}
+
+.explanation-item {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 1rem;
+    border-radius: 8px;
+    border-left: 3px solid #ff8c00;
+    color: rgba(255, 255, 255, 0.9);
+    transition: all 0.3s;
+}
+
+.explanation-item:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-left-color: #40e0d0;
+    transform: translateX(5px);
+}
+
+.explanation-item strong {
+    color: #ff8c00;
+    font-size: 1.1rem;
+    display: inline-block;
+    margin-right: 0.5rem;
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+    .graphs-container {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .formula-section h3 {
+        font-size: 1.4rem;
+    }
+
+    .formula-text {
+        font-size: 0.9rem;
+    }
+
+    .graph-card {
+        padding: 1rem;
+    }
+
+    .penalty-plot {
+        width: 100%;
+        height: auto;
+    }
+
+    .weight-inputs {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .results-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .explanation-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
