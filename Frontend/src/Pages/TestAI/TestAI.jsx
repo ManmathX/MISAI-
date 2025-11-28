@@ -96,6 +96,11 @@ const TestAI = () => {
         {/* Header */}
         <header className="header">
           <div className="header-content">
+            <img
+              src="/Images/Demonic Programmer in a Dark Realm (1).svg"
+              alt="LLM Evaluation Framework"
+              className="header-logo"
+            />
             <h1 className="header-title">mr mama</h1>
             <p className="header-subtitle">its check other llm response</p>
           </div>
