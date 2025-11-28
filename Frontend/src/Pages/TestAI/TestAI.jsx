@@ -12,7 +12,7 @@ const TestAI = () => {
   const [loading, setLoading] = useState(false);
   const [result, setResult] = useState(null);
 
-  const API_BASE_URL = 'http://localhost:8000/api/v1';
+  const API_BASE_URL = import.meta.env.VITE_HOST_URL || 'http://localhost:8000';
 
   const generateId = () => {
     return `eval_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`;
