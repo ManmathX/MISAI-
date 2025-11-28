@@ -1,30 +1,43 @@
-
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
 
 :root {
   /* 🌑 Base Colors */
-  --color-bg: #0b0b0f;           /* deeper obsidian tone for immersive dark feel */
-  --color-surface: #17171b;      /* soft graphite surface for elevation */
-  --color-border: #29292f;       /* refined border for modern contrast */
-  --color-text: #f4f4f6;         /* crisp neutral white */
-  --color-text-secondary: #a9abb3; /* gentle steel gray for secondary text */
+  --color-bg: #0b0b0f;
+  /* deeper obsidian tone for immersive dark feel */
+  --color-surface: #17171b;
+  /* soft graphite surface for elevation */
+  --color-border: #29292f;
+  /* refined border for modern contrast */
+  --color-text: #f4f4f6;
+  /* crisp neutral white */
+  --color-text-secondary: #a9abb3;
+  /* gentle steel gray for secondary text */
 
   /* 💫 Accent Colors (MISAI identity) */
-  --color-accent: #00ffd1;       /* slightly warmer neon cyan – signature glow */
-  --color-accent-alt: #a277ff;   /* richer violet for depth and gradient harmony */
-  --color-warning: #ff5c5c;      /* vivid coral red – more alive */
-  --color-success: #54ff9f;      /* balanced minty green – less harsh */
-  --color-info: #5fb4ff;         /* softer azure blue for clarity */
+  --color-accent: #00ffd1;
+  /* slightly warmer neon cyan – signature glow */
+  --color-accent-alt: #a277ff;
+  /* richer violet for depth and gradient harmony */
+  --color-warning: #ff5c5c;
+  /* vivid coral red – more alive */
+  --color-success: #54ff9f;
+  /* balanced minty green – less harsh */
+  --color-info: #5fb4ff;
+  /* softer azure blue for clarity */
 
   /* 🎨 Gradients */
---gradient-accent: linear-gradient(135deg, #9ab3ff, #e8c4fa);
-
+  --gradient-accent: linear-gradient(135deg, #9ab3ff, #e8c4fa);
   --gradient-verify: linear-gradient(135deg, #54ff9f, #00ffd1);
   --gradient-fake: linear-gradient(135deg, #ff5c5c, #ff9966);
+
+  /* 🌈 RGB Animated Gradients */
+  --gradient-rgb: linear-gradient(90deg, #ff0080, #ff8c00, #40e0d0, #9370db, #ff0080);
+  --gradient-rgb-reverse: linear-gradient(90deg, #9370db, #40e0d0, #ff8c00, #ff0080, #9370db);
 
   /* ✨ Shadows & Glows */
   --shadow-soft: 0 0 25px rgba(0, 255, 209, 0.08);
   --glow-accent: 0 0 16px rgba(0, 255, 209, 0.65);
+  --glow-rgb: 0 0 20px rgba(255, 0, 128, 0.5), 0 0 40px rgba(64, 224, 208, 0.3);
 
   /* 🧱 Radius & Transition */
   --radius: 16px;
@@ -34,9 +47,7 @@
   background-color: #08070e;
 }
 
-
-
-a{
+a {
   text-decoration: none;
 }
 
@@ -44,8 +55,109 @@ body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  position: relative;
+  overflow-x: hidden;
 }
 
-html{
+/* Animated RGB Background */
+body::before {
+  content: '';
+  position: fixed;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle at 20% 50%, rgba(255, 0, 128, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 80% 80%, rgba(64, 224, 208, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 40% 20%, rgba(147, 112, 219, 0.1) 0%, transparent 50%);
+  animation: rgbGlow 15s ease-in-out infinite;
+  pointer-events: none;
+  z-index: 0;
+}
+
+@keyframes rgbGlow {
+
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+    opacity: 0.3;
+  }
+
+  33% {
+    transform: translate(10%, -10%) scale(1.1);
+    opacity: 0.5;
+  }
+
+  66% {
+    transform: translate(-10%, 10%) scale(0.9);
+    opacity: 0.4;
+  }
+}
+
+/* Ensure content is above background */
+#root {
+  position: relative;
+  z-index: 1;
+}
+
+html {
   scroll-behavior: smooth;
+}
+
+/* Global RGB Border Animation */
+@keyframes rgbBorder {
+  0% {
+    border-color: #ff0080;
+    box-shadow: 0 0 10px rgba(255, 0, 128, 0.5);
+  }
+
+  25% {
+    border-color: #ff8c00;
+    box-shadow: 0 0 10px rgba(255, 140, 0, 0.5);
+  }
+
+  50% {
+    border-color: #40e0d0;
+    box-shadow: 0 0 10px rgba(64, 224, 208, 0.5);
+  }
+
+  75% {
+    border-color: #9370db;
+    box-shadow: 0 0 10px rgba(147, 112, 219, 0.5);
+  }
+
+  100% {
+    border-color: #ff0080;
+    box-shadow: 0 0 10px rgba(255, 0, 128, 0.5);
+  }
+}
+
+/* RGB Gradient Animation for Text */
+@keyframes rgbText {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Utility class for RGB text effect */
+.rgb-text {
+  background: var(--gradient-rgb);
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: rgbText 3s ease infinite;
+}
+
+/* Utility class for RGB border effect */
+.rgb-border {
+  animation: rgbBorder 3s linear infinite;
 }

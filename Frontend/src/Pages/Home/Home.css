@@ -1,5 +1,5 @@
 /* hero css */
-.hero-section{
+.hero-section {
   position: relative;
   overflow: hidden;
 }
@@ -11,16 +11,17 @@
 }
 
 
-.hero-overlay{
+.hero-overlay {
   position: absolute;
-  top:50%;
-  left:50%;
-  transform: translate(-50%,-50%);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   color: #fff;
   text-align: center;
 }
-.hero-background-video::before{
-  content:"";
+
+.hero-background-video::before {
+  content: "";
   position: absolute;
   top: 0;
   left: 0;
@@ -35,7 +36,14 @@
   font-weight: 700;
   font-family: "Outfit", sans-serif;
   text-transform: uppercase;
-  margin-bottom: 0.8rem; 
+  margin-bottom: 0.8rem;
+  background: linear-gradient(90deg, #ff0080, #ff8c00, #40e0d0, #9370db, #ff0080);
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: rgbText 3s ease infinite;
+  filter: drop-shadow(0 0 20px rgba(255, 0, 128, 0.3));
 }
 
 .hero-subtitle {
@@ -51,7 +59,7 @@
   .hero-title {
     font-size: 4rem;
   }
-  
+
   .hero-subtitle {
     font-size: 1.3rem;
   }
@@ -61,7 +69,7 @@
   .hero-title {
     font-size: 3.5rem;
   }
-  
+
   .hero-subtitle {
     font-size: 1.2rem;
   }
@@ -71,7 +79,7 @@
   .hero-title {
     font-size: 2.8rem;
   }
-  
+
   .hero-subtitle {
     font-size: 1.1rem;
   }
@@ -82,27 +90,27 @@
     font-size: 2.2rem;
     line-height: 1.2;
   }
-  
+
   .hero-subtitle {
     font-size: 1rem;
     margin-top: 0.3rem;
   }
-  
+
   .hero-overlay {
     width: 90%;
   }
 }
 
 /* cards css */
-.cardcontainer{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-top: 3%;
-    width: 100%;
-    min-height: 700px;
-    margin-bottom: 10%;
-    flex-wrap: wrap;
+.cardcontainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 3%;
+  width: 100%;
+  min-height: 700px;
+  margin-bottom: 10%;
+  flex-wrap: wrap;
 }
 
 .cardcontainer {
@@ -139,7 +147,7 @@
 .cards:hover {
   transform: translateY(-8px);
   box-shadow: var(--shadow-soft);
-  border-color: var(--color-accent);
+  animation: rgbBorder 3s linear infinite;
 }
 
 .cards:hover::before {
@@ -200,11 +208,11 @@
     gap: 1.5rem;
     padding: 1rem;
   }
-  
+
   .cards {
     padding: 2rem 1.5rem;
   }
-  
+
   .cards h1 {
     font-size: 1.3rem;
   }
