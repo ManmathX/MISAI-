@@ -1,0 +1,28 @@
+services:
+  # Single Unified Service - Backend serves Frontend
+  - type: web
+    name: misai-app
+    runtime: python
+    buildCommand: |
+      pip install -r Backend/requirements.txt &&
+      cd Frontend &&
+      npm install &&
+      npm run build &&
+      cd ..
+    startCommand: "cd Backend && gunicorn main:app --workers 2 --worker-class uvicorn.workers.UvicornWorker --bind 0.0.0.0:$PORT"
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.11.0
+      - key: NODE_VERSION
+        value: 18.17.0
+      - key: GEMINI_API_KEY
+        sync: false
+      - key: GROQ_API_KEY
+        sync: false
+      - key: OPENAI_API_KEY
+        sync: false
+      - key: SERP_API_KEY
+        sync: false
+      - key: VITE_BACKEND_HOST_URL
+        value: ""
+    healthCheckPath: /docs

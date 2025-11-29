@@ -1,23 +1,32 @@
-
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
 
 :root {
   /* 🌑 Base Colors */
-  --color-bg: #0b0b0f;           /* deeper obsidian tone for immersive dark feel */
-  --color-surface: #17171b;      /* soft graphite surface for elevation */
-  --color-border: #29292f;       /* refined border for modern contrast */
-  --color-text: #f4f4f6;         /* crisp neutral white */
-  --color-text-secondary: #a9abb3; /* gentle steel gray for secondary text */
+  --color-bg: #0b0b0f;
+  /* deeper obsidian tone for immersive dark feel */
+  --color-surface: #17171b;
+  /* soft graphite surface for elevation */
+  --color-border: #29292f;
+  /* refined border for modern contrast */
+  --color-text: #f4f4f6;
+  /* crisp neutral white */
+  --color-text-secondary: #a9abb3;
+  /* gentle steel gray for secondary text */
 
   /* 💫 Accent Colors (MISAI identity) */
-  --color-accent: #00ffd1;       /* slightly warmer neon cyan – signature glow */
-  --color-accent-alt: #a277ff;   /* richer violet for depth and gradient harmony */
-  --color-warning: #ff5c5c;      /* vivid coral red – more alive */
-  --color-success: #54ff9f;      /* balanced minty green – less harsh */
-  --color-info: #5fb4ff;         /* softer azure blue for clarity */
+  --color-accent: #00ffd1;
+  /* slightly warmer neon cyan – signature glow */
+  --color-accent-alt: #a277ff;
+  /* richer violet for depth and gradient harmony */
+  --color-warning: #ff5c5c;
+  /* vivid coral red – more alive */
+  --color-success: #54ff9f;
+  /* balanced minty green – less harsh */
+  --color-info: #5fb4ff;
+  /* softer azure blue for clarity */
 
   /* 🎨 Gradients */
---gradient-accent: linear-gradient(135deg, #9ab3ff, #e8c4fa);
+  --gradient-accent: linear-gradient(135deg, #9ab3ff, #e8c4fa);
 
   --gradient-verify: linear-gradient(135deg, #54ff9f, #00ffd1);
   --gradient-fake: linear-gradient(135deg, #ff5c5c, #ff9966);
@@ -36,7 +45,7 @@
 
 
 
-a{
+a {
   text-decoration: none;
 }
 
@@ -46,6 +55,6 @@ body {
   box-sizing: border-box;
 }
 
-html{
+html {
   scroll-behavior: smooth;
 }

@@ -7,6 +7,7 @@ import TestImage from './Pages/TestImage/TestImage'
 import TestVideo from './Pages/TestVideo/TestVideo'
 import Misbot from './Pages/MisBot/MisBot'
 import IntroScreen from './Pages/IntroScreen/IntroScreen'
+import ApproachSolution from './Pages/ApproachSolution/ApproachSolution'
 
 
 
@@ -38,8 +39,11 @@ function App() {
       path: '/misbot',
       element: <> <Misbot /> </>
     },
+    {
+      path: '/approach',
+      element: <> <ApproachSolution /> </>
+    },
   ])
-
   // Show intro screen first, then main app
   if (showIntro) {
     return <IntroScreen onComplete={handleIntroComplete} />;
