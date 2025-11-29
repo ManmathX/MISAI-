@@ -5,7 +5,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import TestAI from './Pages/TestAI/TestAI'
 import TestImage from './Pages/TestImage/TestImage'
 import TestVideo from './Pages/TestVideo/TestVideo'
-import Misbot from './Pages/MisBot/MisBot'
+import Misbot from './Pages/MisBot/Misbot'
 import IntroScreen from './Pages/IntroScreen/IntroScreen'
 import ApproachSolution from './Pages/ApproachSolution/ApproachSolution'
 
