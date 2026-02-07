@@ -113,8 +113,7 @@ $$
 ---
 
 ## 🏗 System Architecture
-
-The MISAI platform is built on a robust, modular architecture designed for scalability and real-time processing.
+MISAI platform is built on a robust, modular architecture designed for scalability and real-time processing.
 
 1.  **User Interface (Frontend)**: Built with **React** and **Vite**, featuring a responsive design and interactive visualizations using **Recharts** and **Spline**.
 2.  **API Gateway (Backend)**: A high-performance **FastAPI** server handles requests, manages sessions, and orchestrates AI model interactions.
