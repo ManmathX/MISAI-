@@ -10,7 +10,6 @@
 **AI Agents for Trustworthy Fact-Checking: A Reliability Evaluation Approach for Misinformation Detection**
 
 
----
 
 ## 📖 Table of Contents
 - [Abstract](#-abstract)
